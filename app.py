@@ -91,10 +91,10 @@ def run():
 
 def get_note_data():
     note_id = 0
-    date = datetime.datetime.now()
-    title = input('Введите заголовок заметки: ')
-    text = input('Введите заметку: ')
-    return Note(note_id, date, title, text)
+    note_dt = datetime.datetime.now()
+    note_title = input('Введите заголовок заметки: ')
+    note_text = input('Введите заметку: ')
+    return Note(note_id, note_dt, note_title, note_text)
 
 
 def get_number():

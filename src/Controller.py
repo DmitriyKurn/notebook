@@ -20,20 +20,14 @@ class Controller(object):
         self.view.display_note_stored(note_id)
 
     def update_note(self, note_id, note):
-        if self.note_id_exist(note_id):
-            self.model.update_note(note_id, note)
-            self.view.display_note_updated(note_id)
-        else:
-            self.view.display_note_id_not_exist(note_id)
+        self.model.update_note(note_id, note)
+        self.view.display_note_updated(note_id)
 
     def delete_note(self, note_id):
-        if self.note_id_exist(note_id):
-            try:
-                self.model.delete_note(note_id)
-                self.view.display_note_deletion(note_id)
-            except ValueError:
-                self.view.display_note_id_not_exist(note_id)
-        else:
+        try:
+            self.model.delete_note(note_id)
+            self.view.display_note_deletion(note_id)
+        except ValueError:
             self.view.display_note_id_not_exist(note_id)
 
     def delete_all_notes(self):
